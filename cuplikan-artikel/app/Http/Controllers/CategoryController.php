@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -25,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.category.create');
     }
 
     /**
@@ -36,7 +38,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,  [
+            'name_category' => 'required|min:4',
+        ]);
+
+        $category = Category::create([
+            'name_category' => $request->name_category,
+            'slug' => Str::slug($request->name_category)
+        ]);
+
+        return redirect()->route('category.index')->with(['success' => 'Successfully Added Data']);
     }
 
     /**
@@ -58,7 +69,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+
+        return view('back.category.edit', compact('category'));
     }
 
     /**
@@ -70,7 +83,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->name_category);
+
+        $category = Category::findOrFail($id);
+        $category->update($data);
+
+        return redirect()->route('category.index')->with(['success' => 'Successfully Updated Data']);
     }
 
     /**
@@ -81,6 +100,11 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+
+        $category->delete();
+
+        return redirect()->route('category.index')->with(['success' => 'Successfully Delete Data']);
+
     }
 }
