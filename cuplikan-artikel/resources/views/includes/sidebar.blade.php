@@ -68,7 +68,7 @@
 
                   <ul class="nav">
                       <li class="nav-item">
-                          <a href="widgets.html">
+                          <a href="{{ route('category.index')}}">
                               <i class="fas fa-th-list"></i>
                               <p>Kategori</p>
                           </a>
