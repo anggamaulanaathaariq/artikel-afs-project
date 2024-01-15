@@ -74,6 +74,12 @@
                           </a>
                       </li>
                       <li class="nav-item">
+                        <a href="{{ route('artikel.index')}}">
+                            <i class="far fa-newspaper	"></i>
+                            <p>Artikel</p>
+                        </a>
+                    </li>
+                      <li class="nav-item">
                           <a data-toggle="collapse" href="#base">
                               <i class="fas fa-layer-group"></i>
                               <p>Base</p>
