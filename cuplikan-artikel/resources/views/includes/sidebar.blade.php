@@ -42,22 +42,7 @@
                       <a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
                           <i class="fas fa-home"></i>
                           <p>Dashboard</p>
-                          <span class="caret"></span>
                       </a>
-                      <div class="collapse" id="dashboard">
-                          <ul class="nav nav-collapse">
-                              <li>
-                                  <a href="../demo1/index.html">
-                                      <span class="sub-item">Dashboard 1</span>
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="../demo2/index.html">
-                                      <span class="sub-item">Dashboard 2</span>
-                                  </a>
-                              </li>
-                          </ul>
-                      </div>
                   </li>
                   <li class="nav-section">
                       <span class="sidebar-mini-icon">
@@ -67,35 +52,20 @@
                   </li>
 
                   <ul class="nav">
-                      <li class="nav-item">
+                      <li class="nav-item active">
                           <a href="{{ route('category.index')}}">
                               <i class="fas fa-th-list"></i>
                               <p>Kategori</p>
                           </a>
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item active">
                         <a href="{{ route('artikel.index')}}">
                             <i class="far fa-newspaper	"></i>
                             <p>Artikel</p>
                         </a>
                     </li>
-                      <li class="nav-item">
-                          <a data-toggle="collapse" href="#base">
-                              <i class="fas fa-layer-group"></i>
-                              <p>Base</p>
-                              <span class="caret"></span>
-                          </a>
-                          <div class="collapse" id="base">
-                              <ul class="nav nav-collapse">
-                                  <li>
-                                      <a href="components/avatars.html">
-                                          <span class="sub-item">Avatars</span>
-                                      </a>
-                                  </li>
-                              </ul>
-                          </div>
-                      </li>
-                      <li class="nav-item">
+
+                      <li class="nav-item active">
                           <a href="{{ route('logout') }}"
                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                               <i class="fas fa-sign-out-alt"></i>
